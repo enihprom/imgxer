@@ -1,0 +1,6 @@
+imgxer
+
+multi classifier image indexing library using PIL and sqlite3
+the two files contain the main script and the basic classifiers
+
+status - RUDIMENTARY
