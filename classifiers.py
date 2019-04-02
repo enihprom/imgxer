@@ -14,9 +14,9 @@ class Classifier:
             self.classifier_description = self.classifier_description.split('.')[1:]
     def dump(self):
         if not self.plaindump:
-            cursor.execute("insert into imgindex values ('{}', '{}', '{}');".format(self.name,self.value,self.classifier_text))
+            cursor.execute("insert into imgindex values ('{}', '{}', '{}');".format(self.name,self.value,self.classifier_classname))
         else:
-            print("insert into imgindex values ('{}', '{}', '{}');".format(self.name,self.value,self.classifier_text))
+            print("insert into imgindex values ('{}', '{}', '{}');".format(self.name,self.value,self.classifier_classname))
     def classify(self,im):
         self._classify(im)
         self.dump() 
