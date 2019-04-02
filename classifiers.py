@@ -1,4 +1,23 @@
 
+import sqlite3 as sql
+
+conn = sql.connect("imgxer.db")
+cursor = conn.cursor()
+
+class Classifier:
+    value=0.0
+    def __init__(self):
+        self.plaindump=False
+        self.classifier_text=str(self.__class__).split("'")[1] #TODO insert space before uppercase letters
+    def dump(self):
+        if not self.plaindump:
+            cursor.execute("insert into imgindex values ('{}', '{}', '{}');".format(self.name,self.value,self.classifier_text))
+        else:
+            print("insert into imgindex values ('{}', '{}', '{}');".format(self.name,self.value,self.classifier_text))
+    def classify(self,im):
+        self._classify(im)
+        self.dump() 
+
 class SpectralSumClassifier(Classifier):
     def _classify(self,im):
         u=0 
