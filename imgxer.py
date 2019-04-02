@@ -27,6 +27,7 @@ def test():
         extract_features(f, cset)
     for c in cset:
         cursor.execute("insert into imgindexers values ('{}', '{}');".format(c.classifier_classname,c.classifier_description))
+    conn.commit()
     conn.close()
 
 # TODO event (upload) based reindexing

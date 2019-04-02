@@ -9,7 +9,7 @@ class Classifier:
     def __init__(self):
         self.plaindump=False
         self.classifier_classname=str(self.__class__).split("'")[1]
-        self.classifier_description=str(''.join([' '+c if str(c).isupper() else str(c) for c in self.classifier_classname]).lower().strip())
+        self.classifier_description=str(''.join([' '+c if str(c).isupper() else str(c) for c in self.classifier_classname][0]).lower()).strip()
         if '.' in self.classifier_description:
             self.classifier_description = self.classifier_description.split('.')[1:]
     def dump(self):
