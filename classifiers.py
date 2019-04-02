@@ -29,7 +29,6 @@ class SpectralSumClassifier(Classifier):
             for p in B:
                 u+=p
         self.value=u/(len(B)*i) if (len(B)*i)!=0 else 0 
-        #print("spectral sum of {} = {}".format(self.name,self.value))
 
 class SpectralDensityClassifier(Classifier):
     def _classify(self,im):
@@ -40,7 +39,6 @@ class SpectralDensityClassifier(Classifier):
             for p in B:
                 u+=p*(i-(n/2))
         self.value=u/(len(B)*i) if (len(B)*i)!=0 else 0
-        #print("spectral density of {} = {}".format(self.name,self.value))
 
 class BandMaximumClassifier(Classifier):
     def _classify(self,im):
@@ -48,7 +46,6 @@ class BandMaximumClassifier(Classifier):
         for i,s in enumerate(sums):
             if s==max(sums):
                 self.value=i
-        #print("band maximum of {} = {}".format(self.name,self.value))
 
 class PolynomialBandHashClassifier(Classifier):
     def _classify(self,im):
