@@ -9,9 +9,8 @@ class Classifier:
     def __init__(self):
         self.plaindump=False
         self.classifier_classname=str(self.__class__).split("'")[1]
-        self.classifier_description=str(''.join([' '+c if str(c).isupper() else str(c) for c in self.classifier_classname][0]).lower()).strip()
-        if '.' in self.classifier_description:
-            self.classifier_description = self.classifier_description.split('.')[1:]
+        self.classifier_description=str(''.join([' '+c if str(c).isupper() else str(c) for c in self.classifier_classname]).lower())
+        self.classifier_description = str(self.classifier_description.split('.')[1:][0]).strip() if '.' in self.classifier_description else str(self.classifier_description).strip()
     def dump(self):
         if not self.plaindump:
             cursor.execute("insert into imgindex values ('{}', '{}', '{}');".format(self.name,self.value,self.classifier_classname))

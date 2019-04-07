@@ -16,6 +16,9 @@ def extract_features(ifn,classifiers):
 def test():
     try : 
         cursor.execute("drop table imgindex;")
+    except sql.OperationalError as oe:
+        pass
+    try : 
         cursor.execute("drop table imgindexers;")
     except sql.OperationalError as oe:
         pass
@@ -41,5 +44,10 @@ class SampleEvent(Thread):
         test()
 """
 
+def drop(obj):
+    pass
+    #TODO
+
 if __name__ == '__main__':
     test()
+
